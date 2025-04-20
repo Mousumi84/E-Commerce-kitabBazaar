@@ -9,7 +9,7 @@ export function selectedBookApiCall(bookId) {
             dispatch(selectedBook({apiStatus : ApiStatus.pending}));
 
             const response = await axios({
-                url:`http://localhost:8000/books/book?bookId=${bookId}`,
+                url:`${process.env.REACT_APP_API_URL}/books/book?bookId=${bookId}`,
                 method: "GET",
             });
         

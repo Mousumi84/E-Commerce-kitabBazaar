@@ -10,7 +10,7 @@ export function displayAddressFunction() {
             dispatch(displayAddress({ apiStatus: ApiStatus.pending, address:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/auth/display-address`,
+                url: `${process.env.REACT_APP_API_URL}/auth/display-address`,
                 method: "GET",
                 headers: {Authorization: token},
             });
@@ -39,7 +39,7 @@ export function addAddressfunction(name,phone,pincode,locality,area,city,state,a
             dispatch(addAddress({ apiStatus: ApiStatus.pending, address:[]}));
 
             const response = await axios({
-                url: "http://localhost:8000/auth/update-address",
+                url: "${process.env.REACT_APP_API_URL}/auth/update-address",
                 method: "POST",
                 data: {
                     name,
@@ -78,7 +78,7 @@ export function removeAddressfunction(addressId) {
             dispatch(removeAddress({ apiStatus: ApiStatus.pending, address:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/auth/remove-address?addressid=${addressId}`,
+                url: `${process.env.REACT_APP_API_URL}/auth/remove-address?addressid=${addressId}`,
                 method: "POST",
                 headers: {Authorization: token},
             });

@@ -10,7 +10,7 @@ export function displayWishListBookfunction() {
             dispatch(displayWislistBook({ apiStatus: ApiStatus.pending, books:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/likebook/display-liked-book`,
+                url: `${process.env.REACT_APP_API_URL}/likebook/display-liked-book`,
                 method: "GET",
                 headers: {Authorization: token},
             });
@@ -22,7 +22,7 @@ export function displayWishListBookfunction() {
                 booksId.map(async (bookId) => {
 
                 const response2 = await axios({
-                    url:`http://localhost:8000/books/book?bookId=${bookId}`,
+                    url:`${process.env.REACT_APP_API_URL}/books/book?bookId=${bookId}`,
                     method: "GET",
                 });
 
@@ -53,7 +53,7 @@ export function likeBookfunction(bookId) {
             dispatch(likeBook({ apiStatus: ApiStatus.pending, books:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/likebook/like?bookid=${bookId}`,
+                url: `${process.env.REACT_APP_API_URL}/likebook/like?bookid=${bookId}`,
                 method: "POST",
                 headers: {Authorization: token},
             });
@@ -65,7 +65,7 @@ export function likeBookfunction(bookId) {
                 booksId.map(async (bookId) => {
 
                 const response2 = await axios({
-                    url:`http://localhost:8000/books/book?bookId=${bookId}`,
+                    url:`${process.env.REACT_APP_API_URL}/books/book?bookId=${bookId}`,
                     method: "GET",
                 });
 
@@ -96,7 +96,7 @@ export function unLikeBookfunction(bookId) {
             dispatch(unLikeBook({ apiStatus: ApiStatus.pending, books:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/likebook/unlike?bookid=${bookId}`,
+                url: `${process.env.REACT_APP_API_URL}/likebook/unlike?bookid=${bookId}`,
                 method: "POST",
                 headers: {Authorization: token},
             });
@@ -108,7 +108,7 @@ export function unLikeBookfunction(bookId) {
                 booksId.map(async (bookId) => {
 
                 const response2 = await axios({
-                    url:`http://localhost:8000/books/book?bookId=${bookId}`,
+                    url:`${process.env.REACT_APP_API_URL}/books/book?bookId=${bookId}`,
                     method: "GET",
                 });
 

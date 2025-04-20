@@ -32,7 +32,7 @@ function Signup() {
 
         try {
             const response=await axios({
-                url: "http://localhost:8000/auth/signup",
+                url: "${process.env.REACT_APP_API_URL}/auth/signup",
                 method: "POST",
                 data: formDataToSend,
                 headers: {

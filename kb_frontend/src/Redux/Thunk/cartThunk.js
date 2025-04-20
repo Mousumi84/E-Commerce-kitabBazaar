@@ -10,7 +10,7 @@ export function displayCartfunction() {
             dispatch(displayCart({ apiStatus: ApiStatus.pending, items:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/cart/display-cart`,
+                url: `${process.env.REACT_APP_API_URL}/cart/display-cart`,
                 method: "GET",
                 headers: {Authorization: token},
             });
@@ -40,7 +40,7 @@ export function addToCartfunction(bookId) {
             dispatch(addToCart({ apiStatus: ApiStatus.pending, items:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/cart/add-to-cart?bookid=${bookId}`,
+                url: `${process.env.REACT_APP_API_URL}/cart/add-to-cart?bookid=${bookId}`,
                 method: "POST",
                 headers: {Authorization: token},
             });
@@ -70,7 +70,7 @@ export function removeFromCartfunction(bookId) {
             dispatch(removeFromCart({ apiStatus: ApiStatus.pending, items:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/cart/remove-from-cart?bookid=${bookId}`,
+                url: `${process.env.REACT_APP_API_URL}/cart/remove-from-cart?bookid=${bookId}`,
                 method: "POST",
                 headers: {Authorization: token},
             });
@@ -100,7 +100,7 @@ export function noCartfunction() {
             dispatch(noCart({ apiStatus: ApiStatus.pending, items:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/cart/nocart`,
+                url: `${process.env.REACT_APP_API_URL}/cart/nocart`,
                 method: "POST",
                 headers: {Authorization: token},
             });

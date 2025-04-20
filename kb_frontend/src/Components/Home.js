@@ -55,7 +55,7 @@ export function Home() {
 
         try {
             const response=await axios({
-                url: `http://localhost:8000/books/search-book?search=${search}`,
+                url: `${process.env.REACT_APP_API_URL}/books/search-book?search=${search}`,   // process.env.REACT_APP_API_URL ${process.env.REACT_APP_API_URL}/
                 method: "GET",
             })
 

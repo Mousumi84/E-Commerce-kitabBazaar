@@ -10,7 +10,7 @@ export function displayOrderfunction() {
             dispatch(displayOrder({ apiStatus: ApiStatus.pending, order:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/order/display-order`,
+                url: `${process.env.REACT_APP_API_URL}/order/display-order`,
                 method: "GET",
                 headers: {Authorization: token},
             });
@@ -40,7 +40,7 @@ export function placeOrderfunction(orderData) {
             // console.log("Order Submitted: ", orderData);
 
             const response = await axios({
-                url: `http://localhost:8000/order/placed-order`,
+                url: `${process.env.REACT_APP_API_URL}/order/placed-order`,
                 method: "POST",
                 data: orderData,
                 headers: {
@@ -73,7 +73,7 @@ export function cancelOrderfunction(orderId) {
             dispatch(cancelOrder({ apiStatus: ApiStatus.pending, order:[]}));
 
             const response = await axios({
-                url: `http://localhost:8000/order/cancel-order?orderId=${orderId}`,
+                url: `${process.env.REACT_APP_API_URL}/order/cancel-order?orderId=${orderId}`,
                 method: "POST",
                 headers: {Authorization: token},
             });
