@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { details } from "../App";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filterPageApiCall } from "../Redux/Thunk/frontPageThunk";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ export function Home() {
     const [srchBox,setSrchBox] = useState(false);
     const [searchedBook,setSearchedBook] = useState([]);
     const [maxPrice,setMaxPrice] = useState(15000);
-    const {isLogin,setIsLogin} = useContext(details);
+    const {isLogin} = useContext(details);
     const dispatch = useDispatch();
     const location = useLocation();
     const navigate = useNavigate();
@@ -158,7 +158,7 @@ export function Home() {
             <div id="home">
                 <nav>
                     <div id="navbar">
-                        <img src="../kitabBazaar.jpg" onClick={() => navigate("/")} />
+                        <img src="kitabBazaar.jpg" onClick={() => navigate("/")} />
                         <div id="search-box">
                             <input type="search" onKeyUp={debouncing(searchBook)} autoComplete="off" ref={searchInputRef} />
                             <span className="material-icons-outlined">search</span>

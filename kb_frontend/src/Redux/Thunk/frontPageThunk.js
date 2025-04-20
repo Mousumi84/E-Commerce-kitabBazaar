@@ -8,7 +8,7 @@ export function frontPageApiCall(skip,limit) {
             dispatch(firstScreen({apiStatus : ApiStatus.pending}));
 
             const response = await axios({
-                url:`${process.env.REACT_APP_API_URL}/books/displayallBooks?skip=${skip}&limit=${limit}`,
+                url:`https://e-commerce-kitabbazaar.onrender.com/books/displayallBooks?skip=${skip}&limit=${limit}`,
                 method: "GET",
             });
         
