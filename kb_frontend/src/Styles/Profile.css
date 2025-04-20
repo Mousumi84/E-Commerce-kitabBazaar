@@ -1,0 +1,83 @@
+#Profile {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: rgba(254, 49, 52, 0.065);
+
+    #left {
+        width: 25%;
+        padding: 1%;
+        border: solid 3px rgba(254, 49, 52, 0.192);
+        background-color: white; 
+
+        dl {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: rgb(254, 49, 51);
+
+            a {
+                color: rgb(254, 49, 51);
+                text-decoration: none;
+            }
+
+            dt {
+                button {
+                    border: none;
+                    color: rgb(254, 49, 51);
+                    background-color: transparent;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    #right {
+        padding: 1%;
+        border: solid 3px rgba(254, 49, 52, 0.192); 
+        background-color: white; 
+        color: rgb(254, 49, 51);
+
+        #profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+
+            table {
+                width: 80%;
+
+                tr {
+                    td {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: rgb(254, 49, 51);
+                        
+                    }
+                    .ans {
+                        font-size: 25px;
+                        font-weight: 700;
+                        color: rgb(195, 21, 24);
+                    }
+                }
+            }
+
+            #faq {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                border: solid 1px rgba(254, 49, 52, 0.105);
+                padding: 10px;
+
+                div {
+                    span {
+                        font-weight: 500;
+                        color: rgb(254, 49, 51);
+                    }
+                    p {
+                        color: rgba(254, 49, 52, 0.729);
+                    }
+                }
+            }
+        }
+    }
+}

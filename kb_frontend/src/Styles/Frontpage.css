@@ -1,0 +1,132 @@
+#Frontpage {
+    #pagination {
+        display: flex;
+        flex-direction: row;
+        gap: 6%;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        
+        button {
+            border: none;
+            background-color: transparent;
+            color: rgb(254, 49, 51);
+        }
+        button:active {
+            text-shadow: 0 0 3px rgb(0, 0, 0), 0 0 5px rgb(255, 238, 49);
+        }
+        button:disabled {
+            color: rgba(136, 44, 45, 0.656);
+            cursor: no-drop;
+        }
+        button:disabled:active {
+            text-shadow: none;
+        }
+        .page {
+            background-color: rgba(254, 49, 52, 0.701);
+            color: white; 
+            display: flex;
+            justify-content: center;
+            align-content: center;   
+            height: 35px;
+            width: 35px;
+            border: solid 1px rgb(254, 49, 51); 
+            border-radius: 50%;   
+            font-size: 20px;
+        }
+    }
+
+    #front {
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        border-bottom: solid 2px rgba(254, 49, 52, 0.091);
+    
+        .book-card {
+            border: solid 1px rgba(254, 49, 52, 0.065);
+            width: 200px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            gap: 10px;
+            padding-block: 10px;
+    
+            .book_img {
+                border: solid 1px black;
+                width: 85%;
+                height: 260px;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .like {
+                color: rgb(254, 49, 51);
+                position: relative;
+                left: 78%;
+                bottom: 45%;
+            }
+            .notlike {
+                color: rgb(255, 196, 196);
+                position: relative;
+                left: 78%;
+                bottom: 45%;
+            }
+            .book_dtl {
+                width: 90%; 
+                display: flex;
+                flex-direction: column; 
+                gap: 5px;
+                align-content: space-evenly;
+                padding-left: 20px;
+    
+                .book_name {
+                    color: rgb(254, 49, 51);
+                    font-size: 18px;
+                }
+                .book_author {
+                    color: rgba(254, 49, 52, 0.519);
+                    font-size: 13px;
+                }
+                .book_price {
+                    color: rgb(254, 49, 51);
+                    font-size: 15px;
+                }
+                .book_rate {
+                    background-color: rgba(254, 49, 52, 0.417);
+                    border-radius: 4px;
+                    padding: 5px;
+                    width: fit-content;
+                    color: white;
+                    font-size: 12px;
+    
+                    span {
+                        font-size: 12px;
+                    }
+                }
+                button {
+                    width: 90%;
+                    border: solid 1px rgb(254, 49, 51);
+                    border-radius: 4px;
+                    background-color: rgba(254, 49, 52, 0.065);
+                    color: rgb(254, 49, 51);
+                    font-size: 15px;
+                    font-weight: bold;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+    
+                }
+            }
+        }
+    
+        .book-card:hover {
+            box-shadow: 0 0 10px 10px rgba(255, 0, 0, 0.103);
+        }
+    }
+}

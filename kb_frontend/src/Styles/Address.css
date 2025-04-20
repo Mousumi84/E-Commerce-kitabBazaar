@@ -1,0 +1,279 @@
+#Order {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(255, 241, 241);
+
+    #order-page {
+        .box {
+        border: solid 1px rgba(241, 48, 48, 0.208);
+        background-color: rgba(241, 48, 48, 0.054);
+
+        h6 {
+            background-color: rgba(254, 49, 52, 0.586);
+            color: white;
+            padding: 2px;
+            padding-left: 10px;
+        }
+
+        div {
+            padding-left: 10px;
+            color: rgb(254, 49, 51);
+        }
+        }
+    
+        .odr {
+
+        #list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+
+            .book-card {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                border: solid 1px rgba(254, 49, 52, 0.19);
+                padding: 10px;
+
+                .book_img {
+                    position: relative;
+                    height: 120px;
+                    width: 100px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                .book_dtl {
+                    font-size: medium;
+
+                    .book_name {
+                        font-weight: 700;
+                    }
+
+                    .book_author {
+                        font-size: smaller;
+                    }
+
+                    .book_price {
+                        font-size: small;
+                        font-weight: 700;
+                        color: rgb(145, 3, 5);
+                    }
+                }
+            }
+        }
+        }
+    
+        .dlv-address {
+
+        #optn {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px;
+
+            .add-optn {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+                padding: 10px;
+
+                label {
+                    font-size: medium;
+                    color: rgb(254, 49, 51);
+                    width: 80%;
+
+                    .name {
+                        font-weight: 500;
+                    }
+                    .addtype {
+                        background-color: rgba(254, 49, 52, 0.279);
+                        color: white;
+                        padding: 3px;
+                        border-radius: 5px;
+                        font-size: x-small;
+                    }
+                    .no {
+                        font-size: small;
+                        font-weight: 800;
+                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    }
+                    .adrs {
+                        color: rgb(145, 3, 5);
+                        font-size: small;
+                    }
+                }
+                button {
+                    border: none;
+                    background-color: transparent;
+                    color: rgb(254, 49, 51);
+                    font-size: 15px;
+                    position: relative;
+                    bottom: 20px;
+                    left: 20px;
+                }
+            }
+        }
+
+        }
+    
+        .dlv-btn {
+        button {
+            border: none;
+            padding: 10px;
+            background-color: transparent;
+            color: rgb(254, 49, 51);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        }
+        }
+    
+        .dlv-form {
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+
+            .inp-spc {
+                width: 70%;
+            }
+ 
+            #add-typ {
+                width: 70%;
+                color: rgba(0, 0, 0, 0.606);
+
+                .inp-lb {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    color: rgba(0, 0, 0, 0.606);
+                }
+            }
+
+            .btn {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                width: 50%;
+
+                .butn {
+                    background-color: rgb(254, 49, 51);
+                    color: white;
+                    padding: 5px;
+                    padding-inline: 20px;
+                    border: outset 3px rgba(255, 0, 0, 0.598);
+                }
+
+                button:active {
+                    border: inset 3px rgba(255, 0, 0, 0.598);
+                }
+            }
+        }
+        } 
+    
+        .price {
+
+        #table {
+            padding: 10px;
+
+            tr {
+                td {
+                    width: 400px;
+                    color: rgba(254, 49, 52, 0.704);
+                    font-size: 15px;
+                }
+                .result {
+                    color: rgb(254, 49, 51);
+                }
+                #true {
+                    text-decoration-line: line-through;
+                    color: rgb(106, 106, 106);
+                }
+            }
+            .ttl {
+                border-top: dotted 1px rgba(76, 20, 20, 0.181);
+                font-weight: 600;
+            }
+        }
+        }
+    
+        .payment {
+
+        #prc {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+    
+                .prc-optn {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 20px;
+                    padding: 10px;
+    
+                    label {
+                        font-size: medium;
+                        color: rgb(254, 49, 51);
+                        width: 80%;
+                        font-weight: 500;
+    
+                        .sgtn {
+                            color: rgba(145, 3, 5, 0.492);
+                            font-size: small;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            
+        }
+        }
+    
+        .cnfrm-btn {
+        width: 50%;
+        padding: 2px;
+        font-size: x-large;
+        color: white;
+        border: outset 1px rgba(254, 49, 52, 0.105);
+        background-color: rgb(254, 49, 51);
+        }
+    }
+
+    #confirm {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin: 16%;
+        border: solid 4px rgba(97, 216, 0, 0.369);
+        border-radius: 20px;
+        padding: 70px;
+        background-color: rgba(120, 211, 0, 0.354);
+
+        h1 {
+            color: white;
+        }
+
+        div {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+
+            button {
+                border: solid 1px rgb(77, 128, 0);
+                padding: 10px;
+                font-size: large;
+                background-color: rgba(0, 128, 0, 0.417);
+                border-radius: 5px;
+                color: green;
+                font-weight: 700;
+            }
+        }
+    }
+}

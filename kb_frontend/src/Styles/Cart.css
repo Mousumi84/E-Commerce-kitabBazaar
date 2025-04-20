@@ -1,0 +1,153 @@
+#cart {
+        
+    h2 {
+        font-family:'Times New Roman', Times, serif;
+        color: rgb(254, 49, 51);
+        margin: 20px;
+    }
+    #list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px;
+         
+
+        .book-card {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            height: fit-content;
+            border: solid 1px rgba(254, 49, 52, 0.065);
+            padding: 20px;
+
+
+            .book_img {
+                position: relative;
+                height: 200px;
+                width: 180px;
+                border: solid 1px black;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            
+            .book_dtl {
+                width: 90%; 
+                display: flex;
+                flex-direction: column; 
+                gap: 10px;
+                align-content: space-evenly;
+                padding-left: 20px;
+    
+                .book_name {
+                    color: rgb(254, 49, 51);
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+                .book_author {
+                    color: rgba(254, 49, 52, 0.519);
+                    font-size: 15px;
+                }
+                .book_price {
+                    color: rgb(254, 49, 51);
+                    font-size: 18px;
+                    font-weight: 800;
+                    font-family:Verdana, Geneva, Tahoma, sans-serif;
+                }
+                button {
+                    width: 90%;
+                    border: solid 1px rgb(254, 49, 51);
+                    border-radius: 4px;
+                    background-color: rgba(254, 49, 52, 0.065);
+                    color: rgb(254, 49, 51);
+                    font-size: 15px;
+                    font-weight: bold;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+    
+                }
+
+                .like {
+                    color: rgb(254, 49, 51);
+                    position: relative;
+                    left: 78%;
+                    bottom: 45%;
+                }
+                .notlike {
+                    color: rgb(255, 196, 196);
+                    position: relative;
+                    left: 78%;
+                    bottom: 45%;
+                }
+            }
+
+            .count {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: fit-content;
+                gap: 10px;
+                border: solid 2px rgb(254, 49, 51);
+                color: rgb(254, 49, 51);
+
+                button {
+                    border: none;
+                    background-color: rgba(254, 49, 52, 0.267);
+                    width: 50px;
+                    color: rgb(254, 49, 51);
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+
+    #order-price {
+        margin: 50px;
+        padding: 20px;
+        box-shadow: 3px 3px 5px 2px rgba(149, 40, 42, 0.231);
+
+        table {
+            tr {
+                td {
+                    width: 400px;
+                    color: rgba(254, 49, 52, 0.704);
+                    font-size: 15px;
+                }
+                .result {
+                    color: rgb(254, 49, 51);
+                }
+                #true {
+                    text-decoration-line: line-through;
+                    color: rgb(106, 106, 106);
+                }
+            }
+            .ttl {
+                border-top: dotted 1px rgba(76, 20, 20, 0.181);
+                font-weight: 600;
+            }
+        }
+    }
+
+    #place-order {
+        margin-left: 70%;
+        width: 25%;
+        background-color: rgb(254, 49, 51);
+        color: white;
+        border: solid 2px rgb(254, 49, 51);
+        padding: 10px;
+        font-size: large;
+    }
+    #place-order:active {
+        border: groove 2px red;
+    }
+    
+    .book-card:hover {
+        box-shadow: 0 0 10px 10px rgba(255, 0, 0, 0.103);
+    }
+}
