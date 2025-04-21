@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const { atlasConnection } = require("../db");
+const { mongoose } = require("../db");
 
 const Schema = mongoose.Schema;
 
@@ -16,6 +16,6 @@ const userLikedBook = new Schema({
     ]
 });
 
-const LikedBookSchema = atlasConnection.model("LikedBook",userLikedBook);
+const LikedBookSchema = mongoose.model("LikedBook",userLikedBook);
 
 module.exports = LikedBookSchema; 

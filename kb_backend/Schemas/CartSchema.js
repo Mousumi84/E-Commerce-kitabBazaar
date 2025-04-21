@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const { atlasConnection } = require("../db");
+const { mongoose } = require("../db");
 
 const Schema = mongoose.Schema;
 
@@ -26,6 +26,6 @@ const Cart = new Schema({
         coverImage,...*/
 });
 
-const CartSchema = atlasConnection.model("Cart",Cart);
+const CartSchema = mongoose.model("Cart",Cart);
 
 module.exports = CartSchema; 

@@ -158,7 +158,7 @@ export function Home() {
             <div id="home">
                 <nav>
                     <div id="navbar">
-                        <img src="kitabBazaar.jpg" onClick={() => navigate("/")} />
+                        <img src="kitabBazaar.jpg" onClick={() => navigate("/")} alt="logo" />
                         <div id="search-box">
                             <input type="search" onKeyUp={debouncing(searchBook)} autoComplete="off" ref={searchInputRef} />
                             <span className="material-icons-outlined">search</span>
@@ -332,7 +332,7 @@ export function Home() {
                                                 return (
                                                         <div className="book-dtl" id={book._id} key={book._id} onClick={clickSearchBook}>
                                                             <div className="bk-img">
-                                                                <img src={book.Coverimg} /> 
+                                                                <img src={book.Coverimg} alt="cover image" /> 
                                                             </div>                               
                                                             <div className="bk-dtl">
                                                                 <div className="ttl">{book.Title}</div>

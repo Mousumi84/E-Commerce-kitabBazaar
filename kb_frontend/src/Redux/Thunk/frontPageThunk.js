@@ -7,7 +7,7 @@ export function frontPageApiCall(skip,limit) {
         try {
             dispatch(firstScreen({apiStatus : ApiStatus.pending}));
 
-            const response = await axios({
+            const response = await axios({ 
                 url:`https://e-commerce-kitabbazaar.onrender.com/books/displayallBooks?skip=${skip}&limit=${limit}`,
                 method: "GET",
             });

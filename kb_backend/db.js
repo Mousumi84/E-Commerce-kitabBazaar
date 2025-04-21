@@ -1,5 +1,6 @@
 const mongoose  = require("mongoose");
 
+/*
 //----------------------Connect MongoDb Compass----------------------------------------
 const compassConnection=mongoose.createConnection(process.env.MONGOCOMPASS)
 
@@ -17,3 +18,12 @@ atlasConnection.asPromise()
 
 
 module.exports={mongoose,compassConnection,atlasConnection};
+
+*/
+
+
+mongoose.connect(process.env.MONGOATLAS)
+.then(() => { console.log("MongoDb Connected")})
+.catch((er) => { console.log(er)});
+
+module.exports=mongoose;

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { atlasConnection } = require("../db");
+const { mongoose } = require("../db");
 
 const Schema = mongoose.Schema;
 
@@ -19,6 +19,6 @@ const orderSchema = new Schema({
     timestamps: true,
 });
 
-const OrderSchema = atlasConnection.model("Order",orderSchema);
+const OrderSchema = mongoose.model("Order",orderSchema);
 
 module.exports = OrderSchema;

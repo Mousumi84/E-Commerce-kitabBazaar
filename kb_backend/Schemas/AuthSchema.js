@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-const { atlasConnection } = require("../db");
+const { mongoose } = require("../db");
 
 const Schema = mongoose.Schema;
 
@@ -22,6 +22,6 @@ const userSchema = new Schema({
     }
 });
 
-const UserSchema = atlasConnection.model("user",userSchema);
+const UserSchema = mongoose.model("user",userSchema);
 
 module.exports =  UserSchema; 

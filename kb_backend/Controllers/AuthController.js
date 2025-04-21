@@ -3,7 +3,7 @@ const { checkEmailModel, storeUserInfoModel, userFoundModel, saveAddressModel, d
 const { dataValidation, dataValidationLogin, dataValidationAddressUpdate } = require("../Utils/AuthUtil");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { atlasConnection } = require("../db");
+const { mongoose } = require("../db");
 
 const signupController = async (req,res)  => {
     console.log("Signup");
@@ -112,7 +112,7 @@ const loginController = async (req,res)  => {
 
 const schema = mongoose.Schema;
 const sessionSchema = new schema({_id:String},{strict:false});
-const sessionModel = atlasConnection.model("sessions",sessionSchema);
+const sessionModel = mongoose.model("sessions",sessionSchema);
 
 const logoutController = async (req,res)  => {
     console.log("Logout");
