@@ -3,7 +3,6 @@ const { checkEmailModel, storeUserInfoModel, userFoundModel, saveAddressModel, d
 const { dataValidation, dataValidationLogin, dataValidationAddressUpdate } = require("../Utils/AuthUtil");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { mongoose } = require("../db");
 
 const signupController = async (req,res)  => {
     console.log("Signup");
