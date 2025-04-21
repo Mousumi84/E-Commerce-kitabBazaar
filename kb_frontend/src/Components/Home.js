@@ -158,7 +158,7 @@ export function Home() {
             <div id="home">
                 <nav>
                     <div id="navbar">
-                        <img src="/kitabBazaar.jpg" onClick={() => navigate("/")} alt="logo" />
+                        <img src={`${process.env.REACT_APP_PUBLIC_URL}/kitabBazaar.jpg`} onClick={() => navigate("/")} alt="logo" />
                         <div id="search-box">
                             <input type="search" onKeyUp={debouncing(searchBook)} autoComplete="off" ref={searchInputRef} />
                             <span className="material-icons-outlined">search</span>
