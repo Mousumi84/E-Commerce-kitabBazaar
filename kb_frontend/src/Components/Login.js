@@ -16,7 +16,7 @@ function Login() {
 
         try {
             const response = await axios({
-                url: "${process.env.REACT_APP_API_URL}/auth/login",
+                url: `${process.env.REACT_APP_API_URL}/auth/login`,
                 method: "POST",
                 data: {
                     email:email,

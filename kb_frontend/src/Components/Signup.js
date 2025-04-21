@@ -32,7 +32,7 @@ function Signup() {
 
         try {
             const response=await axios({
-                url: "${process.env.REACT_APP_API_URL}/auth/signup",
+                url: `${process.env.REACT_APP_API_URL}/auth/signup`,
                 method: "POST",
                 data: formDataToSend,
                 withCredentials: true,
@@ -50,7 +50,8 @@ function Signup() {
             navigate("/login");
 
         } catch (error) {
-            alert("An error occured, please try after some time");
+            console.log(error);
+            alert("An error occured, please try after some time",error);
         }
     }
 
