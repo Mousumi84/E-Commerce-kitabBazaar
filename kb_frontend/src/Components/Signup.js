@@ -35,6 +35,7 @@ function Signup() {
                 url: "${process.env.REACT_APP_API_URL}/auth/signup",
                 method: "POST",
                 data: formDataToSend,
+                withCredentials: true,
                 headers: {
                     "Content-Type": "application/json",
                 },

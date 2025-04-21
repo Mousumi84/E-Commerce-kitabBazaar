@@ -21,7 +21,8 @@ function Login() {
                 data: {
                     email:email,
                     password:password,
-                }
+                },
+                withCredentials: true,
             });
 
             if(response.data.status !==  200) {

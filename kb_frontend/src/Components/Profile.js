@@ -19,6 +19,7 @@ function Profile() {
             const response = await axios({
                 url: "${process.env.REACT_APP_API_URL}/auth/logout",
                 method: "POST",
+                withCredentials: true,
                 headers: {Authorization: token}
             });
 

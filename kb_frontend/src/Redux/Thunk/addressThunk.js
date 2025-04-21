@@ -51,6 +51,7 @@ export function addAddressfunction(name,phone,pincode,locality,area,city,state,a
                     state,
                     addtype
                 },
+                withCredentials: true,
                 headers: {Authorization: token}
             });
 
