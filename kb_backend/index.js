@@ -26,7 +26,7 @@ const store = new mongoDbsession({
 
 //--------Middlewares----------------
 app.use(cors({
-    origin: 'https://kitabbazaar.vercel.app/', // or "*" for testing
+    origin: 'https://kitabbazaar-aehxowcek-mousumi-das-projects.vercel.app',
     credentials: true
 }));
 app.use(express.urlencoded({extended:true}));
