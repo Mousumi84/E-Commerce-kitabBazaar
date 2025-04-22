@@ -26,7 +26,7 @@ const store = new mongoDbsession({
 
 //--------Middlewares----------------
 app.use(cors({
-    origin: 'https://kitab-bazaar-nygfavheh-mousumi-das-projects.vercel.app',
+    origin: 'https://kitab-bazaar-kfagxepis-mousumi-das-projects.vercel.app',
     credentials: true
 }));
 app.use(express.urlencoded({extended:true}));
@@ -53,8 +53,3 @@ app.listen(PORT,() => {
     console.log(`server running at:`);
     console.log(`http://localhost:${PORT}`);
 });
-
-
-
-
-// MONGOCOMPASS=mongodb://localhost:27017/KitaabBaazaar
