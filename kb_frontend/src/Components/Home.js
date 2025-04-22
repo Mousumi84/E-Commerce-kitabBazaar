@@ -159,7 +159,6 @@ export function Home() {
                 <nav>
                     <div id="navbar">
                         <img src="/KitabBazaar.jpg" onClick={() => navigate("/")} alt="logo" />
-                        <span>Check logo: <a href="/KitabBazaar.jpg" target="_blank">Click here</a></span>
                         <div id="search-box">
                             <input type="search" onKeyUp={debouncing(searchBook)} autoComplete="off" ref={searchInputRef} />
                             <span className="material-icons-outlined">search</span>
