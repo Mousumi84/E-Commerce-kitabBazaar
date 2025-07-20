@@ -49,13 +49,17 @@ function Login() {
                     <div className="form">
                         <h3>LOGIN</h3>
                         <form onSubmit={loginAPI}>
-                            <div className="mb-3">
-                                <label htmlFor="email" className="form-label">Email</label>
-                                <input type="email" className="form-control" id="email" />
+                            <div className="mb">
+                                <div className="mb-3">
+                                    <label htmlFor="email" className="form-label">Email</label>
+                                    <input type="email" className="form-control" id="email" />
+                                </div>
                             </div>
-                            <div className="mb-3">
-                                <label htmlFor="password" className="form-label">Password</label>
-                                <input type="password" className="form-control" id="password" />
+                            <div className="mb">
+                                <div className="mb-3">
+                                    <label htmlFor="password" className="form-label">Password</label>
+                                    <input type="password" className="form-control" id="password" />
+                                </div>
                             </div>
                             <button type="submit" className="btn btn-primary">Login</button>
                         </form>

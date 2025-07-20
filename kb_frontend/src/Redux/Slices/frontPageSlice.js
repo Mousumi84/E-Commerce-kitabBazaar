@@ -9,7 +9,7 @@ const frontPageSlice = createSlice({
             state.data = action.payload.data;
         }
     }
-})
+})  
 
 export const {firstScreen} = frontPageSlice.actions;
 export default frontPageSlice;

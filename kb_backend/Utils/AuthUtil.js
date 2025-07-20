@@ -10,7 +10,9 @@ const validateEmail = (email) => {
 const dataValidation=({name,email,password}) => {
     return new Promise((resolve,reject) => {
         
+        console.log(name,email,password)
         if(!name || !email || !password) {
+            
            
             if(!name)
                 reject("Name credentials missing");

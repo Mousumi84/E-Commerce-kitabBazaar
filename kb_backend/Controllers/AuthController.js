@@ -5,8 +5,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const signupController = async (req,res)  => {
-    console.log("Signup");
+
+    console.log("Signup",req.body);
     const {name,email,password} = req.body;
+    console.log({name,email,password});
     
     //Data Validation
     try {
