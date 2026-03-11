@@ -26,7 +26,10 @@ const store = new mongoDbsession({
 
 //--------Middlewares----------------
 app.use(cors({
-    origin: "https://e-commerce-kitab-bazaar.vercel.app",
+    origin: [
+        "http://localhost:3000", // localhost
+        "https://e-commerce-kitab-bazaar.vercel.app",
+    ],
     credentials: true
 }));
 app.use(express.urlencoded({extended:true}));
