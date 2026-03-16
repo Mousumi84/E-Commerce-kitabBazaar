@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import '../Styles/Frontpage.css';
 import { useDispatch, useSelector } from "react-redux";
 import { ApiStatus } from "../Utils/apiStatus";
-// import { SkeletonUI } from "../Utils/fetchingSkeletonUI";
 import { filterPageApiCall, frontPageApiCall } from "../Redux/Thunk/frontPageThunk";
 import { displayWishListBookfunction, likeBookfunction, unLikeBookfunction } from "../Redux/Thunk/wishListThunk";
 import { addToCartfunction, displayCartfunction } from "../Redux/Thunk/cartThunk";
