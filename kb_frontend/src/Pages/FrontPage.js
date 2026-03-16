@@ -141,10 +141,9 @@ export function FrontPage() {
       <>
         <div
           style={{
-            border: "solid blue 1px",
             display: "flex",
             flexWrap: "wrap",
-            width: "100%",
+            width: "95%",
             height: "100%",
             gap: "20px",
             justifyContent: "space-evenly",
