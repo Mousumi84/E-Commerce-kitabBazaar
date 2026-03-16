@@ -48,7 +48,7 @@ function Login() {
                 <div id="login" className="box">
                     <div className="form">
                         <h3>LOGIN</h3>
-                        <form onSubmit={loginAPI}>
+                        <form autoComplete="off" onSubmit={loginAPI}>
                             <div className="mb">
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Email</label>
@@ -71,3 +71,9 @@ function Login() {
 }
 
 export default Login;
+
+/*
+name Mousumi
+email moutikdas8175@gmail.com
+password: Mousumi@123
+*/

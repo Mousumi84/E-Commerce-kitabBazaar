@@ -1,5 +1,5 @@
 import '../Styles/Book.css';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons"; 
@@ -11,9 +11,12 @@ import { displayWishListBookfunction, likeBookfunction } from "../Redux/Thunk/wi
 import { unLikeBookfunction } from "../Redux/Thunk/wishListThunk";
 import { addToCartfunction, displayCartfunction } from '../Redux/Thunk/cartThunk';
 import { ApiStatus } from '../Utils/apiStatus';
+import { details } from '../App';
+import LoginComponent from '../Components/LoginComponent';
 
 
 function Book() { 
+    const {isLogin,setIsLogin} = useContext(details);
     const [skip,setSkip] = useState(0);
     const {bookId} = useParams();
     const dispatch = useDispatch();
@@ -24,6 +27,7 @@ function Book() {
     const {items} = useSelector(state => state.cart);
     const [like, setLike] = useState(false);
     const [inCart, setInCart] = useState(false);
+    let [showLogin, setShowLogin] = useState(false);
 
     useEffect(() => {
         const isLiked = books.some(bk => bk._id === bookId);
@@ -39,15 +43,16 @@ function Book() {
 
     useEffect(() => {
             dispatch(displayWishListBookfunction());
+            dispatch(selectedBookApiCall(bookId));
     },[]);
 
     useEffect(() => {
         dispatch(displayCartfunction());
     },[dispatch]);
         
-    useEffect(() => {
-        dispatch(selectedBookApiCall(bookId));
-    },[]);
+    // useEffect(() => {
+    //     dispatch(selectedBookApiCall(bookId));
+    // },[]);
   
     useEffect(() => {
         dispatch(frontPageApiCall(skip,4));
@@ -65,15 +70,21 @@ function Book() {
   
 
     const likeBook = (e) => {
+        isLogin || setShowLogin(true);
+
         setLike(!like);
         if (!like) {
             dispatch(likeBookfunction(bookId)); 
+            setLike(!like);
         } else {
             dispatch(unLikeBookfunction(bookId));
+            setLike(!like);
         }
     }
 
     const addCart = (e) => {
+        isLogin || setShowLogin(true);
+
         setInCart(!inCart);
         dispatch(addToCartfunction(bookId));
     }
@@ -105,7 +116,15 @@ function Book() {
         }
     }
     
-    return  <div id="book">
+    return  <>
+
+            {showLogin && 
+                <div style={{ border: "solid 2px red" , padding: "20px", position: "fixed", top: "0", left: "0", backgroundColor: "#ffffff68", width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", zIndex: "10", gap: "0"}}>
+                    <span className="material-icons-outlined" style={{ position: "absolute", top: "10px", right: "10px", color: "rgba(254, 49, 52, 0.487)"}} onClick={() => setShowLogin(false)}>close</span>
+                    <LoginComponent setShowLogin={setShowLogin}/>
+                 </div>
+            }
+            <div id="book">
                 <div id="book-card">
                     <div className="image-box"><img src={bookdetails?.Coverimg} /></div>
                     <div className="book-dtl">
@@ -115,8 +134,7 @@ function Book() {
                         <div className="rtng"><span>{bookdetails?.Rating} <span className="material-icons-outlined star">star</span></span></div>
                         <div className="pr">₹ {bookdetails?.Price}</div>
                         <div className="btn">
-                            {
-                                inCart ||<button onClick={addCart}><span className="material-icons-outlined">shopping_cart</span> ADD TO CART </button>
+                            {inCart ||<button onClick={addCart}><span className="material-icons-outlined">shopping_cart</span> ADD TO CART </button>
                             }
                             {!like ?  <button onClick={likeBook} className="add-wshlt"><FontAwesomeIcon icon={faHeart} size="xl"/>SAVE TO WISHLIST </button> 
                                   :  <button onClick={likeBook} className="rmv-wshlt"><span className="material-icons-outlined like">favorite</span>REMOVE FROM WISHLIST </button> 
@@ -188,7 +206,7 @@ function Book() {
 
 
                                     return  <div key={book._id} className="book-card" id={book._id} onClick={clickBook}>
-                                                <div className="book_img"><img src={book.Coverimg} alt="image"/></div>
+                                                <div className="book_img"><img src={book.Coverimg} alt="cover pic"/></div>
                                                 <div className="book_dtl">
                                                     <div className="book_name">{book.Title}</div>
                                                     <div className="book_author">by {book.Author}</div>
@@ -197,10 +215,12 @@ function Book() {
                                                     {
                                                         isCart ||<button className="add_cart" id={`cart-${book._id}`}><span className="material-icons-outlined">shopping_cart</span>ADD TO CART</button>
                                                     }
-                                                    {
+                                                    {/* {
                                                         isLiked ? <span className="material-icons-outlined like" id={`love-${book._id}`}>favorite</span>
                                                                 : <span className="material-icons-outlined notlike" id={`love-${book._id}`}>favorite</span>
-                                                    }
+                                                    } */}
+
+                                                    {isLogin && ( <span className={`material-icons-outlined ${isLiked ? "like" : "notlike"}`} id={`love-${book._id}`}>favorite</span>)}
                                                 </div>
                                             </div>
                                 })
@@ -241,6 +261,7 @@ function Book() {
                     <div></div>
                 </div>
             </div>
+        </>
 }
 
 export default Book;

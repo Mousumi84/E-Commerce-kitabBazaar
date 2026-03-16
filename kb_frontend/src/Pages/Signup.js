@@ -70,7 +70,7 @@ function Signup() {
         <div id="Signup" className="box">
             <div className="form">
                 <h3>SIGNUP</h3>
-                <form onSubmit={signupAPI} encType="multipart/form-data">
+                <form autoComplete="off" onSubmit={signupAPI} encType="multipart/form-data">
                     <div className="mb">
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name</label>

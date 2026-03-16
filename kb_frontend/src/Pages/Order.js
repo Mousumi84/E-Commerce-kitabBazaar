@@ -154,7 +154,7 @@ function Order() {
                     
                                     <div className="dlv-address box">
                                         <h6>DELIVERY ADDRESS</h6>
-                                        <form id="optn" onSubmit={dlvAddSave}>
+                                        <form autoComplete="off" id="optn" onSubmit={dlvAddSave}>
                                             {address && address.map(add => {
                                                             return  <div key={add._id} id={add._id} className="add-optn">
                                                                         <input type="radio" id="user_add" name="user_add" value={`${add.name}, ${add.addtype}, ${add.phone}, ${add.locality}, ${add.area}, ${add.city}, ${add.state}, ${add.pincode} `} />
@@ -174,7 +174,7 @@ function Order() {
                     
                                     { addpop && <div className="dlv-form box">
                                 <h6>ADD A NEW ADDRESS</h6>
-                                <form onSubmit={addressSave}>
+                                <form autoComplete="off" onSubmit={addressSave}>
                                     <input type="text" className="inp-spc" id="name" name="name" placeholder="Name" />
                                     <input type="tel" className="inp-spc" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Mobile Number" />
                                     <input type="text" className="inp-spc" id="pincode" name="pincode" placeholder="Pincode" />
@@ -203,7 +203,7 @@ function Order() {
                     
                                     <div className="payment box">
                                         <h6>PAYMENT OPTIONS</h6>
-                                        <form id="prc">
+                                        <form autoComplete="off" id="prc">
                                             <div className="prc-optn">
                                                 <input type="radio" id="upi" name="upi" value="UPI" />
                                                 <label htmlFor="upi">UPI</label> 

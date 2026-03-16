@@ -2,12 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import '../Styles/Frontpage.css';
 import { useDispatch, useSelector } from "react-redux";
 import { ApiStatus } from "../Utils/apiStatus";
+// import { SkeletonUI } from "../Utils/fetchingSkeletonUI";
 import { filterPageApiCall, frontPageApiCall } from "../Redux/Thunk/frontPageThunk";
 import { displayWishListBookfunction, likeBookfunction, unLikeBookfunction } from "../Redux/Thunk/wishListThunk";
 import { addToCartfunction, displayCartfunction } from "../Redux/Thunk/cartThunk";
 import { home } from "./Home";
 import { details } from "../App";
-
 
 export function FrontPage() {
     const {isLogin,setIsLogin} = useContext(details);
@@ -20,7 +20,7 @@ export function FrontPage() {
     const {items} = useSelector(state => state.cart);
     let limit=30;
     const {filterData,filter} = useContext(home);
-
+    let [likebooks,setLikeBooks] = useState([]);
 
     useEffect(() => {
         dispatch(displayWishListBookfunction());
@@ -67,31 +67,6 @@ export function FrontPage() {
     }, [skip, page, filter, filterData, dispatch]);
     
 
-/*
-    useEffect(() => {  
-
-            dispatch(frontPageApiCall(skip,limit));
-
-        if(!cachedData[page]) {   // Only fetch data if not cached
-            console.log("skip=> ",skip,"page=>",page);
-            dispatch(frontPageApiCall(skip,limit));
-        }
- 
-    },[filter,filterData,skip,page,dispatch]);
-
-
-    useEffect(() => {
-        console.log("🔎 Checking Cache for Page:", page, cachedData[page]);
-        
-        if (data && Array.isArray(data) && data.length > 0) {
-            setCachedData(prev => {
-                
-                return { ...prev, [page]: data }
-            });
-        }
-    }, [data, page]);
-*/
-
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
     let noloading = (apiStatus === ApiStatus.init)
@@ -130,14 +105,51 @@ export function FrontPage() {
             window.open(`/book/${bookId}`,"_blank");   // open in new tab
         }
     }
+
+
+    // const isLiked = books.some(item => item._id === book._id);
+
+
+//     const clickBook = (e) => {
+//     const bookId = e.currentTarget.id;
+
+//     if (e.target.classList.contains("like") || e.target.classList.contains("notlike")) {
+
+//         if (books) {
+//             dispatch(unLikeBookfunction(bookId));
+//         } else {
+//             dispatch(likeBookfunction(bookId));
+//         }
+
+//     } else if (e.target.classList.contains("add_cart")) {
+//         dispatch(addToCartfunction(bookId));
+
+//     } else {
+//         window.open(`/book/${bookId}`, "_blank");
+//     }
+// };
  
 
     if(apiStatus === ApiStatus.init || apiStatus === ApiStatus.pending) {
 
-        return <>
-                   <div>...Fetching</div>
+       return <>
+                   <div style={{ border: "solid blue 1px", display: "flex", flexWrap: "wrap", width: "100%", height: "100%", gap: "20px", justifyContent: "space-evenly", alignItems: "center" }}>
+                      {Array.from({ length: 12 }).map((_, i) => (
+                        <div key={i} className="skeleton-card" style={{ width: "200px", height: "340px", backgroundColor: "#ffd7d861", display: "flex", flexDirection: "column", gap: "10px", padding: "10px", justifyContent: "center", alignItems: "center" }}>
+                          <div className="blank_img" style={{ width: "85%", height: "250px", backgroundColor: "#ffd7d883", }}></div>
+                    
+                          <div className="blank_dtl" style={{width: "90%", height: "fit-content", display: "flex", flexDirection: "column", gap: "5px", padding: "5px" }}>
+                            <div className="blank_name" style={{ width: "90%", height: "20px", backgroundColor: "#ffd7d883" }}></div>
+                            <div className="blank_author" style={{ width: "90%", height: "20px", backgroundColor: "#ffd7d883" }}></div>
+                            <div className="blank_price" style={{ width: "90%", height: "20px", backgroundColor: "#ffd7d883" }}></div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                </>
     }
+
+
 
     
 
@@ -156,13 +168,13 @@ export function FrontPage() {
                                             <div className="book_author">by {book.Author}</div>
                                             <div className="book_price">₹{book.Price}</div>
                                             <div className="book_rate">{book.Rating}<span className="material-icons-outlined">star</span></div>
-                                            {
-                                                isCart ||<button className="add_cart" id={`cart-${book._id}`}><span className="material-icons-outlined">shopping_cart</span>ADD TO CART</button>
-                                            }
-                                            {isLogin && (isLiked ? <span className="material-icons-outlined like" id={`love-${book._id}`}>favorite</span>
+                                            {isLogin && ( isCart ||<button className="add_cart" id={`cart-${book._id}`}><span className="material-icons-outlined">shopping_cart</span>ADD TO CART</button>)}
+                                            {/* {isLogin && (isLiked ? <span className="material-icons-outlined like" id={`love-${book._id}`}>favorite</span>
                                                                 : <span className="material-icons-outlined notlike" id={`love-${book._id}`}>favorite</span>
                                                         )
-                                            }
+                                            } */}
+
+                                            {isLogin && ( <span className={`material-icons-outlined ${isLiked ? "like" : "notlike"}`} id={`love-${book._id}`}>favorite</span>)}
                                         </div>
                                     </div>
                         })
